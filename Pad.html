@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score : 0</title>
+</head>
+
+<body style="background-color: black; color: white; font-size:1.8rem;">
+    <div>
+        <pre id="timer">(Timer)</pre>
+    </div>
+    <div id="jeu" style="-moz-user-select: -moz-none; -webkit-user-select: none; cursor: crosshair;">
+        <div class="ligne">
+            <pre id="7" onclick="attaque(7)">
+.-----.
+|     |
+|     |
+'-----'</pre>
+            <pre id="8" onclick="attaque(8)">
+.-----.
+|     |
+|     |
+'-----'</pre>
+            <pre id="9" onclick="attaque(9)">
+.-----.
+|     |
+|     |
+'-----'</pre>
+        </div>
+        <div class="ligne">
+            <pre id="4" onclick="attaque(4)">
+.-----.
+|     |
+|     |
+'-----'</pre>
+            <pre id="5" onclick="attaque(5)">
+.-----.
+|START|
+|     |
+'-----'</pre>
+            <pre id="6" onclick="attaque(6)">
+.-----.
+|     |
+|     |
+'-----'</pre>
+        </div>
+        <div class="ligne">
+            <pre id="1" onclick="attaque(1)">
+.-----.
+|     |
+|     |
+'-----'</pre>
+            <pre id="2" onclick="attaque(2)">
+.-----.
+|     |
+|     |
+'-----'</pre>
+            <pre id="3" onclick="attaque(3)">
+.-----.
+|     |
+|     |
+'-----'</pre>
+        </div>
+    </div>
+    <br><br>
+    <div id="score">
+            <pre id="scoreDisplay">
+Score: 0</pre>
+        <pre id="highscoreDisplay">Highscore: 0</pre>
+    </div>
+    <br>
+    <div class="ligne">
+        <pre id="scoreDisplayPhase1">
+  +3
+.-----.
+| ___ |
+|(x_x)|
+'-----'
+ x 0</pre>
+        <pre id="scoreDisplayPhase2">
+  +1
+.-----.
+|!___ |
+|(xcx)|
+'-----'
+ x 0</pre>
+    </div>
+    <br>
+    <div class="ligne">
+        <pre id="scoreDisplayMissFail">
+  -3
+.-----.
+|Miss!|
+| :(  |
+'-----'
+ x 0</pre>
+        <pre id="scoreDisplayTimeFail">
+  -1
+.-----.
+|Time |
+|is up|
+'-----'
+ x 0</pre>
+    </div>
+    </div>
+</body>
+
+<style>
+    .ligne {
+        display: flex;
+    }
+
+    pre {
+        margin: 0;
+    }
+
+    body>div {
+        display: grid;
+        justify-content: center;
+        margin: auto;
+    }
+</style>
+
+<script>
+    // Sprites
+    const cadre = ".-----.\n|     |\n|     |\n'-----'";
+    const ennemi1 = ".-----.\n| ___ |\n|(o_o)|\n'-----'";
+    const ennemi2 = ".-----.\n|!___ |\n|(òcо́)|\n'-----'";
+    // Var globales de score
+    let score = 0;
+    let highscore = 0;
+    let scorePhase1 = 0;
+    let scorePhase2 = 0;
+    let scoreMissFail = 0;
+    let scoreTimeFail = 0;
+    // Var globales
+    let start = false;
+    let phase = 1;
+    let position = 5;
+    let dernierCooldown;
+    let interval = 500;
+    let temps = 30;
+    let finit = false;
+    const divJeu = document.getElementById('jeu');
+    // KeyCodes des touches du pavé numérique (Les attaques par click son gérées via les attributs 'onclick' des balises)
+    const numKeys = { 97: 1, 98: 2, 99: 3, 100: 4, 101: 5, 102: 6, 103: 7, 104: 8, 105: 9 };
+    // Detection des attaques via les touches du pavé numérique
+    window.addEventListener('keydown', function (event) {
+        if (numKeys.hasOwnProperty(event.keyCode)) {
+            // Attaque sur la case correspondant à la touche du pavé numérique
+            attaque(numKeys[event.keyCode]);
+        };
+    });
+    // Attaque sur une case
+    function attaque(id) {
+        if (!finit) {
+            if (start) {
+                // Recupération de la case touchée
+                let target = document.getElementById(id);
+
+                // Detection de l'ennemi et sa phase sur la case touchée
+                if (target.textContent.trim() === ennemi1.trim()) {
+                    // Si ennemi en phase 1 : +3 score
+                    score += 3
+                    scorePhase1 += 1
+                    document.getElementById('scoreDisplayPhase1').innerHTML = "  +3\n.-----.\n| ___ |\n|(x_x)|\n'-----'\n x " + scorePhase1;
+                    divJeu.style.color = "green";
+                }
+                else if (target.textContent.trim() === ennemi2.trim()) {
+                    // Si ennemi en phase 2 : +1 score
+                    score += 1
+                    scorePhase2 += 1
+                    document.getElementById('scoreDisplayPhase2').innerHTML = "  +1\n.-----.\n|!___ |\n|(xcx)|\n'-----'\n x " + scorePhase2;
+                    divJeu.style.color = "green";
+                }
+                else {
+                    // Si ennemi raté : -3 ptns
+                    score -= 3
+                    scoreMissFail += 1
+                    document.getElementById('scoreDisplayMissFail').innerHTML = "  -3\n.-----.\n|Miss!|\n| :(  |\n'-----'\n x " + scoreMissFail;
+                    divJeu.style.color = "red";
+                }
+                majscoreGlobal()
+            }
+            else {
+                // Début de game, pour ne pas retirer de score à la premiere attaque
+                start = true;
+                document.getElementById('timer').innerHTML = temps + " sec"
+                timer();
+            }
+            // Lancement d'un déplacement
+            deplacements(true);
+        }
+        else {
+            console.log('terminé');
+        }
+    }
+    // Gestion du déplacement
+    function deplacements(click) {
+        // Reset de la position vers une case aléatoire
+        phase = 1
+        document.getElementById(position).innerHTML = cadre
+        position = Math.floor(Math.random() * 9) + 1
+        document.getElementById(position).innerHTML = ennemi1
+        // Lancement du timer pour la gestion des phases
+        clearTimeout(dernierCooldown)
+        dernierCooldown = setTimeout(() => {
+            gestionCooldown()
+        }, interval);
+    }
+    // Gestion des phases
+    function gestionCooldown() {
+        // Si l'on est en phase 1, on passe en phase 2 et on relance un timer de gestion des phases
+        if (phase == 1) {
+            //Passage en phase 2
+            phase = 2;
+            document.getElementById(position).innerHTML = ennemi2;
+            divJeu.style.color = "yellow";
+            // Lancement du timer pour la gestion des phases
+            clearTimeout(dernierCooldown)
+            dernierCooldown = setTimeout(() => {
+                gestionCooldown()
+            }, interval);
+        }
+        // Si l'on est en phase 2, on relance un déplacement pour reset l'ennemi
+        else if (phase == 2) {
+            // Temps écoulé  : -1 ptns
+            score -= 1
+            scoreTimeFail += 1
+            document.getElementById('scoreDisplayTimeFail').innerHTML = "  -1\n.-----.\n|Time |\n|is up|\n'-----'\n x " + scoreTimeFail;
+            divJeu.style.color = "red";
+            majscoreGlobal()
+            // Lancement d'un déplacement pour reset l'ennemi
+            deplacements(false)
+        }
+    }
+
+    function majscoreGlobal(){
+        // MAJ Score global
+        document.getElementById('scoreDisplay').innerHTML = 'Score: ' + score
+        document.title = 'Score: ' + score
+        // MAJ Highscore
+        if (highscore <= score)
+            {
+            highscore = score
+            document.getElementById('highscoreDisplay').innerHTML = "Highscore " + highscore
+            }
+    }
+
+    // Timer qui gère le temps d'une partie
+    function timer() {
+        if (temps > 0) {
+            setTimeout(() => {
+                temps -= 1
+                console.log(temps)
+                document.getElementById('timer').innerHTML = temps + " sec"
+                timer()
+            }, 1000);
+        }
+        else {
+            // Temps écoulé
+            clearTimeout(dernierCooldown)
+            finit = true;
+            divJeu.style.color = "white";
+            let i = 1;
+            while (i < 10) {
+                if (i == 5) {
+                    document.getElementById(i).innerHTML = ".-----.\n|Game |\n| Over|\n'-----'"
+                }
+                else if (i % 2 == 0) {
+                    document.getElementById(i).innerHTML = ennemi1
+                }
+                else {
+                    document.getElementById(i).innerHTML = ennemi2
+                }
+                i += 1
+            }
+            majscoreGlobal()
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte St Valentin💕</title>
+</head>
+
+<body>
+    <br><br><br><br><br><br>
+    <div class="flip">
+        <div class="flipInterne">
+            <div class="devantFlip">
+                <p class="txtJoli hautDroite">De: Flanbi🍮</p>
+                <p class="center">
+                    <br>
+                    <img class="imgMickey"
+                        src="https://i.pinimg.com/originals/f8/5c/a9/f85ca98fe7d75b4d11214dfbed05298a.jpg">
+                    <br><br>
+                    <u style="font-size: 200%">Laisse moi ouvrir ton Kingdom Heart</u>
+                </p>
+                <p class="txtJoli basGauche">A : Yoo</p>
+            </div>
+            <div class="derriereFlip">
+                <p class="titre center texteCouleur">Ma super carte<br>de Saint Valentin</p>
+
+                <img src="https://i1.sndcdn.com/artworks-000050528141-71gapo-t500x500.jpg"
+                    class="stamp-border imgTimbre">
+                <br>
+                <div style="display:flex; font-family: Bradley Hand, cursive; font-size: 100%; line-height: 3;  text-shadow: 1px 1px 2px #c3c0a9;;">
+                    <div>Chèr Yoo, on se connais à peine et voila que déjà<br>
+                        je dois avouer mes sentiments...<br>
+                        Tu es super génial ou quoi!<br>
+                        Jespere quon passera des super moments! <br>
+                        Pour finir <a href="https://www.youtube.com/watch?v=0MOgcHFNQ9k">voici une vidéo qui me tient
+                            beaucoup à coeur</a>,<br>
+                        n'hesite pas a la regarder en boucle !</a><br>
+                        Ps: si qqchose n'est pas a ton gout sur cette page: <br>
+                        la faute a tomansk
+                    </div>
+                    <div class="vertical"></div>
+                    <div style="margin-left: 20px; font-size: 150%;">
+                        <u>
+                            Yoo<br>
+                            3 chemin de Parapluie<br>
+                            Villeneuve les Baisés<br>
+                        </u>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<style>
+    body {
+        background-image: url('https://a.rgbimg.com/users/x/xy/xymonau/600/q8JKTga.jpg');
+        background-size: 300px;
+    }
+
+    .texteCouleur {
+        animation: rainbow 3s linear;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes rainbow {
+
+        100%,
+        0% {
+            color: rgb(255, 0, 0);
+        }
+
+        8% {
+            color: rgb(255, 127, 0);
+        }
+
+        16% {
+            color: rgb(255, 255, 0);
+        }
+
+        25% {
+            color: rgb(127, 255, 0);
+        }
+
+        33% {
+            color: rgb(0, 255, 0);
+        }
+
+        41% {
+            color: rgb(0, 255, 127);
+        }
+
+        50% {
+            color: rgb(0, 255, 255);
+        }
+
+        58% {
+            color: rgb(0, 127, 255);
+        }
+
+        66% {
+            color: rgb(0, 0, 255);
+        }
+
+        75% {
+            color: rgb(127, 0, 255);
+        }
+
+        83% {
+            color: rgb(255, 0, 255);
+        }
+
+        91% {
+            color: rgb(255, 0, 127);
+        }
+    }
+
+    .titre {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 200%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .imgTimbre {
+        position: fixed;
+        height: 100px;
+        right: 10px;
+        top: 10px;
+    }
+
+    .imgMickey {
+        height: 200px;
+        border: solid black
+    }
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .basGauche {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        margin-right: 10px;
+    }
+
+    .hautDroite {
+        margin-left: 10px;
+    }
+
+    .txtJoli {
+        font-family: 'Brush Script MT', cursive;
+        font-size: 300%;
+        margin:20px;
+    }
+
+    .flip {
+        height: 500px;
+        width: 700px;
+        margin: auto;
+    }
+
+    .flipInterne {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+
+    .flip:hover .flipInterne {
+        transform: rotateY(180deg);
+    }
+
+    .devantFlip,
+    .derriereFlip {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .devantFlip {
+        border: solid 3px pink;
+        background-image: url('https://st2.depositphotos.com/1172692/6409/v/950/depositphotos_64097319-stock-illustration-tile-cute-vector-pattern-with.jpg');
+        background-size: 600px;
+    }
+
+    .derriereFlip {
+        transform: rotateY(180deg);
+        height: 500px;
+        width: 700px;
+        background-color: #F2EECB;
+        border: solid 3px #c3c0a9;
+    }
+
+    /* j'ai volé ca sur internet hihihi */
+    .stamp-border {
+        /* Background */
+        background-color: gray;
+        background-image: radial-gradient(#F2EECB 50%, transparent 50%);
+        background-position: -0.25rem -0.25rem;
+        background-repeat: repeat;
+        background-size: 0.5rem 0.5rem;
+
+        /* Spacing */
+        padding: 0.25rem;
+    }
+
+    .vertical {
+        border-left: 6px solid #c3c0a9;
+        height: 350px;
+        left: 50%;
+        margin-left: 5px;
+    }
+
+    /* fin du vol hihihi*/
+</style>
+<script>
+</script>
+
+</html>

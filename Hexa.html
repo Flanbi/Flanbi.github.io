@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexa</title>
+</head>
+<body>
+
+<div id="fond"></div>
+<input id="slider" value="0" type="range" min="0" max="16777215" step="1"></input><br>
+<input id="resultat"></div>Decimal<br>
+<input id="resultatHex"></div>Hex
+
+</div>
+
+</body>
+<script>
+const fond = document.getElementById('fond')
+const slider = document.getElementById('slider')
+const resultat = document.getElementById('resultat')
+const resultatHex = document.getElementById('resultatHex')
+
+slider.addEventListener("input", function(event) {
+    value = parseInt(slider.value, 10)     
+    hexValue = toHex(value)
+
+    fond.style.backgroundColor = "#" + hexValue
+    resultat.value = value
+    resultatHex.value = hexValue
+    document.title = hexValue
+
+})
+
+resultat.addEventListener("change", function(event) {
+    value = parseInt(resultat.value, 10)     
+    hexValue = toHex(value)
+
+    fond.style.backgroundColor = "#" + hexValue
+    slider.value = value
+    resultatHex.value = hexValue
+    document.title = hexValue
+})
+
+resultatHex.addEventListener("change", function(event) {
+    hexValue = resultatHex.value 
+    fullHexValue = hexValue   
+    value = parseInt(hexValue, 16)
+    if (hexValue.length < 6) {
+        zerosToAdd = 6 - hexValue.length
+        fullHexValue = '0'.repeat(zerosToAdd) + hexValue
+    }
+    fond.style.backgroundColor = "#" + fullHexValue
+    slider.value = value
+    resultat.value = value
+    document.title = fullHexValue
+})
+
+function toHex(decimal){
+    hexValue = decimal.toString(16).toUpperCase()
+    fullHexValue = hexValue
+    if (hexValue.length < 6) {
+        zerosToAdd = 6 - hexValue.length
+        fullHexValue = '0'.repeat(zerosToAdd) + hexValue
+    }
+    return fullHexValue
+}
+</script>
+<style>
+    body{
+        background-color: black;
+        color: white;
+    }
+    .center{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    #jeu{
+        background-color: gray;
+        border: 1px white solid;
+    }
+    #fond{
+        background-color: black;
+        width: 500px;
+        height: 500px;
+        border: 1px white solid;
+    }
+    
+    </style>
+</html>
