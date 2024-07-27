@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="display: flex;
+justify-content: center;
+align-items: center;
+width: 100vw;
+height: 100vh;
+font-size: 3rem;
+background-color: black;
+background-image: url('baloon.png');
+padding: 0;
+margin: 0;
+">
+<img id="kdo" src="gift.png" style="width:20%; cursor: pointer;" onclick="miamoPointFunction()">
+</body>
+
+<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+function miamoPointFunction(){
+    document.body.style.backgroundImage = "url('miamoburger.jpg')"
+    document.getElementById("kdo").src = "AlexSDev.png"
+}
+
+
+</script>
+</html>

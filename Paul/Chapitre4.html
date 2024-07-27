@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="ressources/images/icon.png">
+    <link rel="stylesheet" href="ressources/css.css">
+    <title> Paul et le Mystère du Secret </title>
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <div id="navbar">
+        <span class="separation rainbow-text-anim">|</span>
+        <span id="son-navbar" class="mousehover">🔇</span>
+        <span class="separation rainbow-text-anim">|</span>
+        <span id="titre-navbar"><a href="Home.html">Paul et le Mystère du Secret</a></span>
+        <span class="separation rainbow-text-anim">|</span>
+        <a href="ressources/slides/ExposeMario.pdf" target="_blank"><img src="ressources/images/mario.png"
+                id="mario-navbar"></a>
+        <span class="separation rainbow-text-anim">|</span>
+        <a href="https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard" target="_blank">🌐</a>
+        <span class="separation rainbow-text-anim">|</span>
+    </div>
+
+    <!-- Main Body -->
+    <img src="ressources/images/soleil.png" class="soleilTourne" id="soleil"
+        style="position:fixed; top: 40px; right: 10px;" height="250px">
+    <span class="txt">
+        <b><u>Le chapitre quatre : la plage......</u></b><br>
+        <br>
+        paul et arriver a la plage. il voit la mer. -je <br>
+        vois la mer.<br>
+        un arrivant arrive :<br>
+        - Bonjour.<br>
+        -bonjour (paul)<br>
+        -je suis le vandeur de glace.<br>
+        -ha d'acord tres bien.<br>
+        -je voudrait que vous me l'acheter ma glace au bon gout de chocolat noire.<br>
+        - oui<br>
+        - alore cela fait tout de suite 20 $.<br>
+        - non, je ne possede plus de monaie. car jai oublier mon porte feuile qui contenaie ma monaie. avec lequel je
+        vous paye mais pas maintenant car je ne l'ai pas sur moi.<br>
+        - pas de sousis, je suis egalement horloguer, je peu vous rendre visitee plus tard dans la nuit.<br>
+        la nuit :<br>
+        - ces la nuit. je vous rend visite comme je le disait sur la plage tout a lheure.<br>
+        -oui.<br>
+        - tiens une glace au raisin secs. <br>
+        - merci beaucoup c'est agreable (paul), je vois doit une fiere chandele.<br>
+        - vous me redever ça.<br>
+        - quel est votre noms de famile ?<br>
+        - je m'apele simon.<br>
+        - cest un jolli prenom. mes enfants s'apellent simon.<br>
+        - simonc 'est mon nom de famile,<br>
+        - ha oui tout a fait d'acord<br>
+        - oui<br>
+        -quel est votre prenom m. simon ?<br>
+        - je m'apelle simon.<br>
+        - aur revoir simon simon.<br>
+        paul alla se couché. car ces la nuit, ile se fait tard cete nuit.<br>
+        <br>
+        à suivre.... etc....<br>
+    </span>
+    <span class="mmhGlace mousehover center" id="mmhGlace">🍦</span>
+    <br><br><br><br><br>
+    <style>
+
+        .mmhGlace{
+            font-size: 500%;
+            color: blanchedalmond;
+        }
+        .txt{
+            color:black;
+            background-image: url('ressources/images/sand.jpg');
+        }
+        .soleilTourne {
+            animation: spin 3s infinite linear;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        body {
+            background-image: url('ressources/images/plage.jpg');
+            background-size: 100%;
+        }
+    </style>
+    <script>
+        // Click sur le soleil
+        function soleilTriste() {
+            document.getElementById("soleil").src = "ressources/images/soleilTriste.png";
+            document.getElementById("soleil").className = "";
+            new Audio('ressources/audios/bouwouimp.mp3').play();
+            setTimeout(function () {
+                document.getElementById("soleil").src = "ressources/images/soleil.png";
+                document.getElementById("soleil").className = "soleilTourne";
+            }, 3000);
+        }
+
+        function glaceClick() {
+            document.getElementById("mmhGlace").innerHTML = "20 $";
+            new Audio('ressources/audios/kaching.mp3').play();
+            document.getElementById("mmhGlace").className = "mmhGlace center";
+        }
+
+        document.getElementById("soleil").addEventListener("click", soleilTriste);
+        document.getElementById("mmhGlace").addEventListener("click", glaceClick);
+    </script>
+    <!-- Fin Main Body -->
+
+    <!-- Footer -->
+    <div id="footer">
+        <br>
+        <span class="navigation">
+            <a href="Chapitre3.html">[<<< Page précédente]</a>
+                    <a href="Chapitre5.html">[Page suivante >>>]</a></span>
+        <br>
+    </div>
+    <!-- Fin Footer -->
+
+</body>
+<script src="ressources/js.js"></script>
+
+</html>

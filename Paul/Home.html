@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="ressources/images/icon.png">
+    <link rel="stylesheet" href="ressources/css.css">
+    <title> Paul et le Mystère du Secret </title>
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <div id="navbar">
+        <span class="separation rainbow-text-anim">|</span>
+        <span id="son-navbar" class="mousehover">🔇</span>
+        <span class="separation rainbow-text-anim">|</span>
+        <span id="titre-navbar"><a href="Home.html">Paul et le Mystère du Secret</a></span>
+        <span class="separation rainbow-text-anim">|</span>
+        <a href="ressources/slides/ExposeMario.pdf" target="_blank"><img src="ressources/images/mario.png"
+                id="mario-navbar"></a>
+        <span class="separation rainbow-text-anim">|</span>
+        <a href="https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard" target="_blank">🌐</a>
+        <span class="separation rainbow-text-anim">|</span>
+    </div>
+    <!-- Fin Nav Bar -->
+
+    <!-- Main Body -->
+    <span class="center">
+        <span style="font-size: 500%; user-select: none;">
+            <span id="Horloge" class="mousehover">🕛</span>
+            <span style="font-family: RubikBurned; margin: auto; color: white;">PAUL</span>
+        </span>
+        <br>
+        <br>
+        <div class="flip">
+            <div class="flipInterne">
+                <div class="devantFlip">
+                    <img src="ressources/images/PaulEtLeMystereDuSecret.gif" class="flip">
+                </div>
+                <div class="derriereFlip clockColors-anim">
+                    <img src="ressources/images/explosion.gif" height="500px" class="backgroundImgCard">
+                    <img src="ressources/images/explosion.gif" height="500px" class="backgroundImgCard"
+                        style="transform: rotate(180deg);">
+                    <img src="ressources/images/explosion.gif" height="500px" class="backgroundImgCard"
+                        style="transform: rotate(90deg);">
+                    <img src="ressources/images/explosion.gif" height="500px" class="backgroundImgCard"
+                        style="transform: rotate(270deg);">
+                    <img src="ressources/images/eye.gif" width="500px" class="backgroundImgCard" style="z-index: 1;">
+                    <img src="ressources/images/clockman.png" height="500px">
+
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <b><span class="texteJoli lireHistoire"><a href="Prologue.html" class="rainbow-text-anim">Lire l'histoire 🢂</a>
+                <select
+                    onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                    <option selected value="" disabled hidden>Choisir un chapitre</option>
+                    <option value="Prologue.html">Prologue</option>
+                    <option value="Chapitre1.html">Chapitre 1</option>
+                    <option value="Chapitre2.html">Chapitre 2</option>
+                    <option value="Chapitre3.html">Chapitre 3</option>
+                    <option value="Chapitre4.html">Chapitre 4</option>
+                    <option value="Chapitre5.html">Chapitre 5</option>
+                    <option value="Chapitre6.html">Chapitre 6</option>
+                    <option value="Chapitre7.html">Chapitre 7</option>
+                    <option value="Chapitre8.html">Chapitre 8</option>
+                    <option value="Chapitre9.html">Chapitre 9</option>
+                    <option value="Chapitre10.html">Chapitre 10</option>
+                    <option value="Chapitre11.html">Chapitre 11</option>
+
+                </select></span></b><br><br><br>
+        <img src="ressources/images/Tome1.png" width="500px">
+        <br>
+        <br>
+        🕛🕧🕐🕜🕑🕝🕒🕞🕓🕟🕔🕠🕕🕡🕖🕢🕗🕣🕘🕤🕙🕥🕚🕦
+        <br>
+        <br>
+        <br>
+
+
+    </span>
+    <style>
+        body {
+            background-image: url('ressources/images/cobble_stone.png');
+        }
+
+        .lireHistoire {
+            -webkit-text-stroke-width: 0.5px;
+            -webkit-text-stroke-color: white;
+            background-color: black;
+            border: solid white 2px;
+            padding: 10px;
+        }
+
+        .flip {
+            width: 500px;
+            height: 500px;
+            margin: auto;
+        }
+
+        .flipInterne {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip:hover .flipInterne {
+            transform: rotateY(180deg);
+        }
+
+        .devantFlip,
+        .derriereFlip {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .derriereFlip {
+            transform: rotateY(180deg);
+            height: 500px;
+            width: 500px;
+        }
+
+        .clockColors-anim {
+            animation: clockColors 5s linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes clockColors {
+
+            100%,
+            0% {
+                background-color: #CD7F32;
+            }
+
+            7% {
+                background-color: #804A00;
+            }
+
+            14% {
+                background-color: #C76D40;
+            }
+
+            21% {
+                background-color: #E5A01D;
+            }
+
+            28% {
+                background-color: #A97142;
+            }
+
+            35% {
+                background-color: #B5975C;
+            }
+
+            42% {
+                background-color: #B1560F;
+            }
+
+            49% {
+                background-color: #391802;
+            }
+
+            56% {
+                background-color: #E4953C;
+            }
+
+            63% {
+                background-color: #665D1E;
+            }
+
+            70% {
+                background-color: #D59940;
+            }
+
+            77% {
+                background-color: #C66D00;
+            }
+
+            84% {
+                background-color: #1F1D1B;
+            }
+
+            91% {
+                background-color: #A57164;
+            }
+
+            99% {
+
+                background-color: #CD7F32;
+            }
+        }
+
+        .backgroundImgCard {
+            position: absolute;
+            z-index: -1;
+        }
+    </style>
+    <script>
+        var clocks = new Array("🕛", "🕧", "🕐", "🕜", "🕑", "🕝", "🕒", "🕞", "🕓", "🕟", "🕔", "🕠", "🕕", "🕡", "🕖", "🕢", "🕗", "🕣", "🕘", "🕤", "🕙", "🕥", "🕚", "🕦");
+        var i = 1;
+        function lHorlogeTourne() {
+            document.getElementById('Horloge').innerHTML = clocks[i];
+            i += 1;
+            if (i > 23) {
+                i = 0;
+            }
+        }
+        document.getElementById('Horloge').addEventListener("click", lHorlogeTourne)
+    </script>
+    <!-- Fin Main Body -->
+
+    <!-- Footer -->
+    <div id="footer" style="display: flex;">⏲️
+        <div id="blinkies" style="margin: auto;">
+            <img src="ressources/images/Blinkies/horlogerie.gif" id="blinkyHorlogerie" class="mousehover">
+            <a href="https://youtube.com/@minalor_" target="_blank"><img
+                    src="ressources/images/Blinkies/minalor.gif"></a>
+            <a href="https://flanbi.github.io/" target="_blank"><img
+                    src="ressources/images/Blinkies/flanbi.gif"></a>
+            <a href="MiscPages/BandeDessinees.html" target="_blank"><img src="ressources/images/Blinkies/bandesdessinees.gif"></a>
+            <a href="MiscPages/Credits.html" target="_blank"><img src="ressources/images/Blinkies/credits.gif"></a>
+            </div>⏲️
+    </div>
+    <!-- Fin Footer -->
+
+</body>
+<script src="ressources/js.js"></script>
+
+</html>

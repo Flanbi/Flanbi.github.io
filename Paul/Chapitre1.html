@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="ressources/images/icon.png">
+    <link rel="stylesheet" href="ressources/css.css">
+    <title> Paul et le Mystère du Secret </title>
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <div id="navbar">
+        <span class="separation rainbow-text-anim">|</span>
+        <span id="son-navbar" class="mousehover">🔇</span>
+        <span class="separation rainbow-text-anim">|</span>
+        <span id="titre-navbar"><a href="Home.html">Paul et le Mystère du Secret</a></span>
+        <span class="separation rainbow-text-anim">|</span>
+        <a href="ressources/slides/ExposeMario.pdf" target="_blank"><img src="ressources/images/mario.png"
+                id="mario-navbar"></a>
+        <span class="separation rainbow-text-anim">|</span>
+        <a href="https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard" target="_blank">🌐</a>
+        <span class="separation rainbow-text-anim">|</span>
+    </div>
+    <!-- Fin Nav Bar -->
+
+    <!-- Main Body -->
+
+    <span class="center taille">
+        <pre><mark class="txtArbreFeuille">
+chaptire 1 - introduction - apré prlogue.
+C'est l'histoire de paul .Il est archelologue mais plus
+maintenant car sa femme devient enceinte. paul et
+content mais ,, il ne pouvais plus travailer. Il decida
+donc de faire un tableaude peinture, et il coloria le
+tableau vite pour la nouvelle anée. quand c'est le
+nouvel an, il passait du temps avec son epouses et
+manger des aperitifs, pour paser le nouvel an bientot.
+MAis avant que le nouvel an sois la, madame paul
+comenssa a acoucher de jumeau. paul penser pase
+que ce sont des jumeau, mais en faite si. 
+a suivre......</mark><a style="font-size: 50%;" href="https://www.ina.fr/ina-eclaire-actu/video/cab95023638/chirac-et-les-pommes" target="_blank">🍎</a>
+<mark class="txtArbreTronc">A .
+R .
+B .
+R .
+E .</mark></pre>
+        <span class="texteJoli taille" style="
+        -webkit-text-stroke-width: 0.5px;
+        -webkit-text-stroke-color: white;
+        text-shadow: 1px 1px 2px white;">La peinture de Paul :</span><br>
+        <img id="peinturepaul" class="mousehover" src="ressources/images/peinturepaul.png" height="400px">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </span>
+
+    <style>
+        body {
+            background-image: url('ressources/images/machupichu.jpg');
+            background-size: 100%;
+        }
+
+        .txtArbreFeuille {
+            background-color: lime;
+        }
+
+        .txtArbreTronc {
+            background-color: brown;
+        }
+
+        .taille {
+            font-size: 150%;
+        }
+
+        .spin {
+            animation-name: spin;
+            animation-duration: 500ms;
+            animation-iteration-count: 1;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+
+    <script>
+
+        function spinPeinture() {
+            document.getElementById('peinturepaul').setAttribute('class', 'spin');
+            setTimeout(function () {
+                document.getElementById('peinturepaul').setAttribute('class', 'mousehover');;
+            }, 500);
+            new Audio('ressources/audios/SPIIIIIIn.mp3').play();
+        }
+
+        document.getElementById('peinturepaul').addEventListener('click', spinPeinture)
+    </script>
+    <!-- Fin Main Body -->
+
+    <!-- Footer -->
+    <div id="footer">
+        <!-- NAVIGATION -->
+        <div id="footer">
+            <br>
+            <span class="navigation"><a href="Prologue.html">[<<< Page précédente]</a>
+                        <a href="Chapitre2.html">[Page suivante >>>]</a></span>
+            <br>
+        </div>
+        <!-- Fin Footer -->
+
+</body>
+<script src="ressources/js.js"></script>
+
+</html>

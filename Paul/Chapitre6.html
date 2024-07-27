@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="ressources/images/icon.png">
+    <link rel="stylesheet" href="ressources/css.css">
+    <title> Paul et le Mystère du Secret </title>
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <div id="navbar">
+        <span class="separation rainbow-text-anim">|</span>
+        <span id="son-navbar" class="mousehover">🔇</span>
+        <span class="separation rainbow-text-anim">|</span>
+        <span id="titre-navbar"><a href="Home.html">Paul et le Mystère du Secret</a></span>
+        <span class="separation rainbow-text-anim">|</span>
+        <a href="ressources/slides/ExposeMario.pdf" target="_blank"><img src="ressources/images/mario.png"
+                id="mario-navbar"></a>
+        <span class="separation rainbow-text-anim">|</span>
+        <a href="https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard" target="_blank">🌐</a>
+        <span class="separation rainbow-text-anim">|</span>
+    </div>
+
+    <!-- Main Body -->
+    <div style="display: flex;">
+        <img src="ressources/images/armoire2.png" id="armoire" onclick="armoire()">
+        <span id="txt">
+            sixieme chat pitre §<br>
+            <br>
+            le visage ne lui senblait pas familier. <br>
+            quant il regarda de plus pret, en fait le visage le lui semble familier.<br>
+            - votre visgae me semble familier.<br>
+            -cest pârce queue mon visage est tres familieer.<br>
+            -ha d'acord cela me conviens come explication, je vais donc me couché dans mon lit.<br>
+            il ala se coucher dans son lit. <br>
+            le lendemain, ile ne se passa rien d'interesant a raconter.<br>
+            le jour d'encore apres, paul se reveila tres conten. <br>
+            il salua le visage familier dans son placar avant daler au travail :<br>
+            - bonjour.<br>
+            - bonjour.<br>
+            en parntat au travail, deux problemes se posa a lui : 1 : il a oublier son objet inportant : le portefeuile2
+            :<br>
+            il est en retar au travail : -je suis en retard pour le travail,.<br>
+            en arive au travaile, il fait chaud. paul enleva son mentau et son bonet. il croisait simon simon /:<br>
+            -bonjour.<br>
+            -bonjour. <br>
+            paul se mie a traviler, et soudan, il se rapela de quelque chos : <br>
+            - mince, je suis veuf.<br>
+            en effet, la veille, il eu apris lanouvelle;. son ex femme divorcee est tomber dans l'ascenceure. elle
+            est<br>
+            terriblement morte sur le moment.<br>
+            en tombans, elle est tomber sur les deux fils de pauel, simon et simon. les deux enfants sont aler a
+            lhopitale,<br>
+            mais seule simon a survequis. <br>
+            -mince, jaime bien simon, mais il et decede se dit paul.<br>
+            - a quit parle tu ? lui repondit simon simon, le vandeur de glace horlogier ?<br>
+            - ha non, ce nest rien. je suis perdu dans mes penser.<br>
+            - ha super! jai entendu dire que tu a un fils mort, cest domage.<br>
+            -oui ca c'es sur, c'est domage....... <br>
+            mais ce que paul ne saver pas.<br>
+            cest que paul neétaits pas au bout de ces penne.<br>
+            <br>
+            a suivre.......<br>
+        </span>
+    </div>
+    <br><br><br><br>
+    <br>
+    <style>
+        body {
+            background-image: url('ressources/images/chambre.jpg');
+            background-size: 100%;
+        }
+
+        #armoire {
+            height: 700px;
+        }
+
+        #txt {
+            background-color: burlywood;
+            height: min-content;
+            border: solid 4px brown;
+            font-size: 125%;
+            font-family: Mojangles;
+            background-image: url('ressources/images/oak_planks.png');
+        }
+
+        @font-face { 
+            font-family: Mojangles; 
+            src: url('ressources/fonts/mojangles.ttf'); 
+        } 
+    </style>
+
+    <script>
+        var flagArmoire = 0;
+        // Click armoire
+        function armoire() {
+            if (flagArmoire == 0) {
+                document.getElementById("armoire").src = "ressources/images/armoire.png";
+                flagArmoire = 1;
+                new Audio('ressources/audios/chest-open.mp3').play();
+            }
+            else {
+                document.getElementById("armoire").src = "ressources/images/armoire2.png";
+                flagArmoire = 0;
+                new Audio('ressources/audios/chest-close.mp3').play();
+            }
+        }
+    </script>
+    <!-- Fin Main Body -->
+
+    <!-- Footer -->
+    <div id="footer">
+        <br>
+        <span class="navigation">
+            <a href="Chapitre5.html">[<<< Page précédente]</a>
+                    <a href="Chapitre7.html">[Page suivante >>>]</a></span>
+        <br>
+    </div>
+    <!-- Fin Footer -->
+
+</body>
+<script src="ressources/js.js"></script>
+
+</html>

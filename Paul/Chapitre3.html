@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="ressources/images/icon.png">
+    <link rel="stylesheet" href="ressources/css.css">
+    <title> Paul et le Mystère du Secret </title>
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <div id="navbar">
+        <span class="separation rainbow-text-anim">|</span>
+        <span id="son-navbar" class="mousehover">🔇</span>
+        <span class="separation rainbow-text-anim">|</span>
+        <span id="titre-navbar"><a href="Home.html">Paul et le Mystère du Secret</a></span>
+        <span class="separation rainbow-text-anim">|</span>
+        <a href="ressources/slides/ExposeMario.pdf" target="_blank"><img src="ressources/images/mario.png"
+                id="mario-navbar"></a>
+        <span class="separation rainbow-text-anim">|</span>
+        <a href="https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard" target="_blank">🌐</a>
+        <span class="separation rainbow-text-anim">|</span>
+    </div>
+
+    <!-- Main Body -->
+    <b>
+        <div class="txt">chapitre 3: nouvaux depart<br>
+            - qu'il fait chaud aujourdui ! ! s'exclamat paul le 25 aout en enfait il faisait au moin 1000 degré c'est
+            lété.<br>
+            Puis. Il voulais du lait. Il lui fallait une vacha allait. Il va a la ferme la plus proche et demanda : -
+            bonjour<br>
+            - bonjour<br>
+            - il fait chaud je peux avoir du lait monieur le fermier?? ? <br>
+            - oui c'est gratuit <br>
+            - merci bien <br>
+            Paul boit le lait et ca le rafraichaissez<br>
+            - ca fait 20 $ mr<br>
+            - okai, je suis horlogier mais oh non j'ai oublié mon portefeuille voulez vous ma bague de mariage que je
+            ccomptait <br>
+            offrire a ma femme divorcée qui m'a trompée en echange du lait monsieur?<br>
+            - ca fera la <span class="fer">ｆｅｒ</span> <br>
+            Ca faisait la <span class="fer">ｆｅｒ</span> et paul etait con temp. il faisait beau ce 25
+            aout(jeudi).<br>
+            il se disait: - jme dis que si j'allais a la plage j'ai moins cho ! ! ! <br>
+            paul alla a la plage. a suivr</div>
+    </b>
+    <br>
+    <style>
+        .fer {
+            color: gray;
+            -webkit-text-stroke-width: 1.5px;
+            -webkit-text-stroke-color: white;
+        }
+
+        .txt {
+            color: white;
+            font-size: 175%;
+            background-image: url("ressources/images/grass.jpg");
+            border: solid 2px green;
+            text-shadow: 1px 1px 2px black;
+            
+        }
+
+        body {
+            background-image: url('ressources/images/ferme.png');
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-color: green;
+            background-position: center;
+        }
+    </style>
+    <script>
+        // Nombre Aléatoire
+        function generateRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        var listAnimaux = Array("🐄", "🐖", "🐇", "🐑", "🦃", "🐓", "🐤", "🦆", "🦚")
+        // Genertion animaux
+        for (var i = 0; i < listAnimaux.length; i++) {
+            var animal = document.createElement("span");
+            animal.id = "animal" + i;
+            animal.innerHTML = listAnimaux[i];
+            animal.style.position = "fixed";
+            animal.style.fontSize = "300%";
+            animal.style.left = generateRandomNumber(0, 100 - animal.offsetWidth / document.documentElement.clientWidth * 100) + "vw";
+            animal.style.top = generateRandomNumber(0, 100 - animal.offsetHeight / document.documentElement.clientHeight * 100) + "vh";
+            document.body.appendChild(animal);
+        }
+    </script>
+    <!-- Fin Main Body -->
+
+    <!-- Footer -->
+    <div id="footer">
+        <br>
+        <span class="navigation">
+            <a href="Chapitre2.html">[<<< Page précédente]</a>
+                    <a href="Chapitre4.html">[Page suivante >>>]</a></span>
+        <br>
+    </div>
+    <!-- Fin Footer -->
+
+</body>
+<script src="ressources/js.js"></script>
+</html>

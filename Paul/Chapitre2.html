@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="ressources/images/icon.png">
+    <link rel="stylesheet" href="ressources/css.css">
+    <title> Paul et le Mystère du Secret </title>
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <div id="navbar">
+        <span class="separation rainbow-text-anim">|</span>
+        <span id="son-navbar" class="mousehover">🔇</span>
+        <span class="separation rainbow-text-anim">|</span>
+        <span id="titre-navbar"><a href="Home.html">Paul et le Mystère du Secret</a></span>
+        <span class="separation rainbow-text-anim">|</span>
+        <a href="ressources/slides/ExposeMario.pdf" target="_blank"><img src="ressources/images/mario.png"
+                id="mario-navbar"></a>
+        <span class="separation rainbow-text-anim">|</span>
+        <a href="https://fr.wikipedia.org/wiki/Sp%C3%A9cial:Page_au_hasard" target="_blank">🌐</a>
+        <span class="separation rainbow-text-anim">|</span>
+    </div>
+
+    <!-- Main Body -->
+    <p class="txt">
+        <span class="center">💦chapirtre 2 - c'est domage.💦</span><br>
+        💧paul avais donc deux emfants quil aimer. mais quand il a apris que sa femme netai pas encteinte de lui, il a
+        une reaction de folie. <br>
+        💧il se mie a casser les mirroir <span id="emplacementMirroir"><img src="ressources/images/Mirror_Door.png" id="mirroir" href="http://wikipedia.com"></span> de la salle de bain. la sale de bain de n'avoit plus de surface refelchissante.
+        <br><a href="" target="_blank"></a>
+        💧Apres,n il eu le divorce et il se dit après :<br>
+        💧-je suis décu de ma femme, je pense que elle ne doit pas faire cela. Je suis horlogier.<br>
+        💧puis paul allah dans le vilage ou il travaile pour aller travailer dans sont horlogerie. ces t'ici qu'il
+        travaile.<br>
+        💧Pendans de longes moinutes, il travaile sur la montre qui offre a sa femme lors de ses 10 ans de mariage. il
+        se disait alors :<br>
+        💧-pourvu que cela ne me re arrive jamais, je suis amer.<br>
+        💧il se disa que c'étais dommage davoir fait le divorce :<br>
+        💧-c'est domage.<br>
+        💧-asuivre<br><img src="ressources/images/White_Fire_Place.png" class="center mousehover" id="feuBlanc">
+    </p>
+    <style>
+        body {
+            background-image: url('ressources/images/Downpour.webp');
+            background-size: 100%;
+        }
+
+        .txt {
+            color: aqua;
+            font-size: 150%;
+            border: solid;
+            border-color: blue;
+            background-image: url('ressources/images/rain.gif');
+            background-size: 100%;
+            -webkit-text-stroke-width: 0.5px;
+            -webkit-text-stroke-color: blue;
+            text-shadow: 1px 1px 2px black;
+            padding: 50px;
+        }
+    </style>
+
+    <script>
+        var flagFeu = 0;
+        function activateMirroir(){
+            if(flagFeu == 0){
+            var emplacementMirroirHTML = document.getElementById("emplacementMirroir").innerHTML;
+            emplacementMirroirHTML = '<a href="https://www.youtube.com/watch?v=tIBcNDE0d4A" target="_blank">' + emplacementMirroirHTML + '</a>'
+            emplacementMirroir.innerHTML = emplacementMirroirHTML;
+            document.getElementById("mirroir").addEventListener("click", mirroirSFX);
+            flagFeu = 1;
+            fire = new Audio('ressources/audios/firehiss.wav')
+            fire.volume = 0.1
+            fire.play()
+            isaacdies = new Audio('ressources/audios/isaacdies.wav')
+            isaacdies.volume = 0.1
+            isaacdies.play()
+            }
+        }
+        document.getElementById("feuBlanc").addEventListener("click", activateMirroir);
+
+        function mirroirSFX(){
+            mirror = new Audio('ressources/audios/mirrorenter.wav')
+            mirror.volume = 0.1
+            mirror.play()
+        }
+    </script>
+    <!-- Fin Main Body -->
+
+    <!-- Footer -->
+    <div id="footer">
+        <br>
+        <span class="navigation">
+            <a href="Chapitre1.html">[<<< Page précédente]</a>
+                    <a href="Chapitre3.html">[Page suivante >>>]</a></span>
+        <br>
+    </div>
+    <!-- Fin Footer -->
+
+</body>
+<script src="ressources/js.js"></script>
+
+</html>
