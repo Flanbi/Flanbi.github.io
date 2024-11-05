@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory</title>
+</head>
+
+<body>
+    <div id="Tapis">
+    </div><br>
+    <span id="Score"><span id="TxtNbPaires">Paires:</span><span id="NbPaires">0</span>/26</span>
+</body>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: monospace;
+        font-size: 600%;
+        user-select: none;
+        justify-content: center;
+        display: grid;
+    }
+
+    #Tapis {
+        background-color: #35654d;
+    }
+
+    .rainbow-background-anim {
+        animation: rainbow 10s linear;
+        animation-iteration-count: infinite;
+    }
+
+    #Score{
+        text-align: center;
+    }
+
+    @keyframes rainbow {
+
+        100%,
+        0% {
+            background-color: rgb(255, 0, 0);
+        }
+
+        8% {
+            background-color: rgb(255, 127, 0);
+        }
+
+        16% {
+            background-color: rgb(255, 255, 0);
+        }
+
+        25% {
+            background-color: rgb(127, 255, 0);
+        }
+
+        33% {
+            background-color: rgb(0, 255, 0);
+        }
+
+        41% {
+            background-color: rgb(0, 255, 127);
+        }
+
+        50% {
+            background-color: rgb(0, 255, 255);
+        }
+
+        58% {
+            background-color: rgb(0, 127, 255);
+        }
+
+        66% {
+            background-color: rgb(0, 0, 255);
+        }
+
+        75% {
+            background-color: rgb(127, 0, 255);
+        }
+
+        83% {
+            background-color: rgb(255, 0, 255);
+        }
+
+        91% {
+            background-color: rgb(255, 0, 127);
+        }
+    }
+</style>
+<script>
+    /* ♠♣♥♦♤♧♡♢ */
+
+    // Cartes Noires
+    const Spades = [null, '🂡', '🂢', '🂣', '🂤', '🂥', '🂦', '🂧', '🂨', '🂩', '🂪', '🂫', '🂭', '🂮'];
+    const Clubs = [null, '🃑', '🃒', '🃓', '🃔', '🃕', '🃖', '🃗', '🃘', '🃙', '🃚', '🃛', '🃝', '🃞'];
+
+    // Cartes Rouges
+    const Hearts = [null, '🂱', '🂲', '🂳', '🂴', '🂵', '🂶', '🂷', '🂸', '🂹', '🂺', '🂻', '🂽', '🂾'];
+    const Diamonds = [null, '🃁', '🃂', '🃃', '🃄', '🃅', '🃆', '🃇', '🃈', '🃉', '🃊', '🃋', '🃍', '🃎'];
+
+    // Dos
+    const Back = '🂠';
+
+    const Cartes = [null, Spades, Clubs, Hearts, Diamonds];
+
+    const Tapis = document.getElementById('Tapis');
+
+    let nbPaires = 0;
+
+    let carteTemp = null;
+
+    let wait = false;
+
+    class Carte {
+
+        constructor(couleur, valeur) {
+            // Entre 1 et 4 (Spades, Clubs, Hearts, Diamonds)
+            this.carteCouleur = couleur;
+            // Entre 1 et 13
+            this.carteValeur = valeur;
+        };
+
+        getCaractere() {
+            return (Cartes[this.carteCouleur][this.carteValeur]);
+        };
+        getValeur() {
+            return (this.carteValeur);
+        };
+        getCouleur() {
+            return (this.carteCouleur);
+        };
+
+    };
+
+    const Deck = []
+    for (i = 1; i != Cartes.length; i++) {
+        for (j = 1; j != Cartes[i].length; j++) {
+            uneCarte = new Carte(i, j)
+            Deck.push(uneCarte);
+        };
+    };
+
+    function createGame() {
+        //Mélange du Deck
+        Deck.sort((a, b) => 0.5 - Math.random());
+
+        //Ajout des Cartes du Deck sur le Tapis
+        for (a = 0; a != Deck.length; a++) {
+            LaCarte = Deck[a];
+            const CarteSpan = document.createElement("span");
+            CarteSpan.id = a;
+            CarteSpan.innerHTML = Back;
+            //CarteSpan.innerHTML = LaCarte.getCaractere();
+            CarteSpan.setAttribute('onclick', 'tirerCarte()');
+
+            Tapis.appendChild(CarteSpan);
+
+            if (a != 0 && (a + 1) % 13 == 0) {
+                Tapis.appendChild(document.createElement("br"));
+            };
+        };
+    };
+
+    function tirerCarte() {
+        if (wait == false) {
+            let CardElement = event.srcElement;
+            let CardDeck = Deck[event.srcElement.id];
+            
+
+            if (carteTemp != null && (carteTemp[1] != CardDeck)) {
+                revelerCard(CardElement, CardDeck);
+                if (carteTemp[1].getValeur() == CardDeck.getValeur()) {
+                    if ((carteTemp[1].getCouleur() < 3 && CardDeck.getCouleur() < 3) ||
+                        (carteTemp[1].getCouleur() > 2 && CardDeck.getCouleur() > 2)) {
+
+                        // C'est une paire
+                        
+                        nbPaires++;
+                        document.getElementById('NbPaires').innerHTML = nbPaires;
+                        carteTemp[0].classList = 'rainbow-background-anim';
+                        carteTemp[0].setAttribute('onclick', '');
+                        
+                        CardElement.classList = 'rainbow-background-anim';
+                        CardElement.setAttribute('onclick', '');
+
+                        carteTemp = null;
+
+                        if(nbPaires == 26){
+                            Tapis.classList = 'rainbow-background-anim';
+                            document.getElementById('Score').classList = 'rainbow-background-anim';
+                            document.getElementById('TxtNbPaires').innerHTML = 'Bravo !'
+                        }
+                        return;
+                    };
+                };
+                // Ce n'est pas une paire, alors on vide temp et on reset les cartes
+                carteTempId = carteTemp[0].id;
+                cardElementId = CardElement.id;
+                wait = true;
+                setTimeout(() => {
+                    resetCard(carteTempId);
+                    resetCard(cardElementId);
+                    wait = false;
+                }, 1000);
+                carteTemp = null;
+            }
+            else {
+                carteTemp = [CardElement, CardDeck];
+                revelerCard(CardElement, CardDeck);
+            };
+        };
+    };
+
+    function revelerCard(CardElement, CardDeck) {
+
+        CardElement.innerHTML = CardDeck.getCaractere();
+
+        if (CardDeck.getCouleur() == 1 || CardDeck.getCouleur() == 2) {
+            // Pique ou Trefle
+            CardElement.style.color = 'black';
+        }
+        else {
+            // Pique ou Trefle
+            CardElement.style.color = 'red';
+        };
+        CardElement.style.backgroundColor = 'white';
+    };
+
+    function resetCard(id) {
+        CardElement = document.getElementById(id);
+        CardElement.innerHTML = Back;
+        CardElement.style.color = 'white';
+        CardElement.style.backgroundColor = '#35654d';
+    };
+
+    createGame();
+</script>
+
+</html>
